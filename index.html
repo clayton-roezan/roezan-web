@@ -134,10 +134,25 @@
 
   /* NAV DROPDOWNS */
   .nav-dropdown { position: relative; }
-  .nav-dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .nav-dropdown-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 8px 0; }
   .dropdown-arrow { width: 12px; height: 12px; transition: transform 0.2s; }
   .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
-  .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 0; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px; min-width: 220px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); z-index: 200; }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 12px; /* invisible bridge to close the gap */
+    z-index: 200;
+  }
+  .dropdown-menu-inner {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px;
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
   .nav-dropdown:hover .dropdown-menu { display: block; }
   .dropdown-link { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--dark); transition: background 0.15s; }
   .dropdown-link:hover { background: var(--offset-shade); color: var(--primary-3); }
@@ -153,7 +168,7 @@
   <div class="nav-links">
     <div class="nav-dropdown">
       <span class="nav-dropdown-toggle">Features <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e23d1eb8e360_icon-select-arrow.svg" class="dropdown-arrow" alt=""></span>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu"><div class="dropdown-menu-inner">
         <a href="https://roezan.com/sms-broadcast" class="dropdown-link">Broadcasts <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/event-sms-reminders" class="dropdown-link">Event Reminders <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/conversations" class="dropdown-link">Conversations <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
@@ -162,11 +177,11 @@
         <a href="https://roezan.com/audience-segmenting" class="dropdown-link">Lists &amp; Segments <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/bulk-mms" class="dropdown-link">MMS <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/features" class="dropdown-link">All Features <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
-      </div>
+      </div></div>
     </div>
     <div class="nav-dropdown">
       <span class="nav-dropdown-toggle">Integrations <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e23d1eb8e360_icon-select-arrow.svg" class="dropdown-arrow" alt=""></span>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu"><div class="dropdown-menu-inner">
         <a href="https://roezan.com/integrations/activecampaign" class="dropdown-link">ActiveCampaign <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/integrations/go-high-level" class="dropdown-link">Go High Level <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/integrations/hubspot" class="dropdown-link">HubSpot <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
@@ -175,18 +190,18 @@
         <a href="https://roezan.com/integrations/kit" class="dropdown-link">Kit <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://zapier.com/apps/roezan-sms/integrations" class="dropdown-link">Zapier <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/integrations" class="dropdown-link">See All Integrations <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
-      </div>
+      </div></div>
     </div>
     <a href="https://roezan.com/blog">Blog</a>
     <a href="https://roezan.com/meet">Demo</a>
     <div class="nav-dropdown">
       <span class="nav-dropdown-toggle">Company <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e23d1eb8e360_icon-select-arrow.svg" class="dropdown-arrow" alt=""></span>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu"><div class="dropdown-menu-inner">
         <a href="https://roezan.com/company/about" class="dropdown-link">About Us <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/contact" class="dropdown-link">Contact <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://help.roezan.com" class="dropdown-link">Knowledge Base <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
         <a href="https://roezan.com/vip-setup" class="dropdown-link">VIP Setup Service <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/624d826b2319e24e70b8e36a_icon-chevron-right-dark.svg" alt=""></a>
-      </div>
+      </div></div>
     </div>
     <a href="https://roezan.com/pricing">Pricing</a>
   </div>
