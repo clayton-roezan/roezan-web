@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roezan - Automated Text Messages & SMS Marketing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1a1a2e; background: #fff; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 60px; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 100; }
+  .nav-logo img { height: 32px; }
+  .nav-links { display: flex; gap: 32px; font-size: 15px; font-weight: 500; color: #333; }
+  .nav-links a:hover { color: #6c3fff; }
+  .nav-ctas { display: flex; gap: 12px; align-items: center; }
+  .btn { padding: 10px 22px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .btn-outline { border: 1.5px solid #ddd; color: #333; background: #fff; }
+  .btn-outline:hover { border-color: #6c3fff; color: #6c3fff; }
+  .btn-primary { background: #6c3fff; color: #fff; border: none; }
+  .btn-primary:hover { background: #5a2ee0; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(108,63,255,0.3); }
+
+  /* HERO */
+  .hero { padding: 90px 60px 70px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; color: #0f0f1a; margin-bottom: 22px; letter-spacing: -1px; }
+  .hero p { font-size: 20px; color: #555; max-width: 640px; margin: 0 auto 36px; line-height: 1.6; }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .trust-bar { margin: 60px auto 0; max-width: 800px; }
+  .trust-bar img { max-width: 100%; opacity: 0.85; }
+  .checklist { display: flex; justify-content: center; gap: 40px; margin-top: 36px; flex-wrap: wrap; }
+  .check-item { display: flex; align-items: center; gap: 8px; font-size: 15px; color: #444; font-weight: 500; }
+  .check-icon { width: 18px; height: 18px; background: #6c3fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .check-icon::after { content: "✓"; color: #fff; font-size: 10px; font-weight: 800; }
+
+  /* FEATURES */
+  .features { padding: 80px 60px; }
+  .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1100px; margin: 0 auto 100px; }
+  .feature-block.reverse { direction: rtl; }
+  .feature-block.reverse > * { direction: ltr; }
+  .feature-label { font-size: 12px; font-weight: 700; color: #6c3fff; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .feature-block h2 { font-size: 34px; font-weight: 800; color: #0f0f1a; line-height: 1.2; margin-bottom: 16px; }
+  .feature-block p { font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 24px; }
+  .feature-checks { list-style: none; margin-bottom: 28px; }
+  .feature-checks li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: #333; font-weight: 500; margin-bottom: 10px; }
+  .feature-checks li::before { content: "✓"; width: 20px; height: 20px; background: #6c3fff; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+  .feature-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .feature-img img { width: 100%; display: block; }
+  .feature-img-placeholder { background: linear-gradient(135deg, #f0ebff 0%, #e8f4ff 100%); height: 340px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  .link-more { color: #6c3fff; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 6px; }
+  .link-more:hover { text-decoration: underline; }
+
+  /* GRID FEATURES */
+  .grid-features { background: #f8f6ff; padding: 80px 60px; }
+  .grid-features h2 { text-align: center; font-size: 38px; font-weight: 800; color: #0f0f1a; margin-bottom: 50px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+  .grid-card { background: #fff; border-radius: 14px; padding: 28px; border: 1px solid #ede9ff; }
+  .grid-card h3 { font-size: 17px; font-weight: 700; color: #0f0f1a; margin-bottom: 10px; }
+  .grid-card p { font-size: 14px; color: #666; line-height: 1.6; }
+  .grid-card .icon { font-size: 28px; margin-bottom: 14px; }
+
+  /* CTA DEMO */
+  .demo-section { background: linear-gradient(135deg, #6c3fff 0%, #4a1fcc 100%); color: #fff; text-align: center; padding: 80px 60px; }
+  .demo-section h2 { font-size: 42px; font-weight: 800; margin-bottom: 16px; }
+  .demo-number { font-size: 52px; font-weight: 900; letter-spacing: -2px; margin: 20px 0; }
+  .demo-section p { font-size: 15px; opacity: 0.8; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+
+  /* FINAL CTA */
+  .final-cta { text-align: center; padding: 80px 60px; }
+  .final-cta h2 { font-size: 38px; font-weight: 800; color: #0f0f1a; margin-bottom: 12px; }
+  .final-cta p { color: #888; margin-bottom: 32px; font-size: 15px; }
+  .final-cta .sub { font-size: 13px; color: #aaa; margin-top: 16px; }
+  .final-cta .sub a { color: #6c3fff; }
+
+  /* FOOTER */
+  footer { background: #0f0f1a; color: #ccc; padding: 60px; }
+  .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1100px; margin: 0 auto 50px; }
+  .footer-col h4 { color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+  .footer-col a { display: block; color: #999; font-size: 14px; margin-bottom: 10px; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid #222; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 13px; color: #666; }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a { font-size: 13px; color: #666; }
+  .footer-legal a:hover { color: #fff; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 24px 50px; }
+    .hero h1 { font-size: 36px; }
+    .feature-block { grid-template-columns: 1fr; gap: 40px; direction: ltr !important; }
+    .features { padding: 60px 24px; }
+    .grid { grid-template-columns: 1fr; }
+    .grid-features { padding: 60px 24px; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/6256eb40d88a5e27f767291a_Roezan-Logo-4133.svg" alt="Roezan"></a>
+  </div>
+  <div class="nav-links">
+    <a href="https://roezan.com/features">Features</a>
+    <a href="https://roezan.com/integrations">Integrations</a>
+    <a href="https://roezan.com/blog">Blog</a>
+    <a href="https://roezan.com/meet">Demo</a>
+    <a href="https://roezan.com/pricing">Pricing</a>
+  </div>
+  <div class="nav-ctas">
+    <a href="https://app.roezan.com/login" class="btn btn-outline">Log In</a>
+    <a href="https://app.roezan.com/register" class="btn btn-primary">Sign Up Free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Scale Your Revenue With High-Performance SMS</h1>
+  <p>Send blazing-fast mass broadcasts, increase live event attendance, automate SMS sequences, and close more sales — all in one simple dashboard.</p>
+  <div class="hero-ctas">
+    <a href="https://app.roezan.com/register" class="btn btn-primary" style="font-size:17px;padding:14px 32px;">Get A Free Trial</a>
+    <a href="https://roezan.com/meet" class="btn btn-outline" style="font-size:17px;padding:14px 32px;">Book A Demo →</a>
+  </div>
+  <div class="trust-bar">
+    <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/68b8fff01be9d9b753b0f51a_trust-bar-3.png" alt="Trusted by customers">
+  </div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"></div>98%+ open rate via SMS</div>
+    <div class="check-item"><div class="check-icon"></div>Communicate at scale & 1-on-1</div>
+    <div class="check-item"><div class="check-icon"></div>Simple enough for anyone</div>
+  </div>
+</section>
+
+<section class="features">
+
+  <div class="feature-block">
+    <div>
+      <div class="feature-label">Text Message Broadcasts</div>
+      <h2>Send Mass Text Message Broadcasts</h2>
+      <p>Send thousands of text messages at once to promote your products, webinars, deals, or just get your message out there!</p>
+      <ul class="feature-checks">
+        <li>Send To Everyone Or Specific Segments</li>
+        <li>Personalize Messages With Merge Tags</li>
+        <li>Built-In Link Shortener With Tracking</li>
+      </ul>
+      <a href="https://roezan.com/sms-broadcast" class="link-more">Learn More About Broadcasts →</a>
+    </div>
+    <div class="feature-img">
+      <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/689cf0a1f7af5c8a0d4236db_customize-sms2.png" alt="SMS Broadcasts">
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div>
+      <div class="feature-label">Event Reminders</div>
+      <h2>Boost Webinar Attendance With SMS Reminders</h2>
+      <p>Instantly increase show-up rate to Events, Webinars, meetings, and more with automated SMS reminders.</p>
+      <ul class="feature-checks">
+        <li>Create Custom Events For Any Integration</li>
+        <li>Send Custom Calendly SMS Reminders</li>
+        <li>Zoom Meeting & Webinar Reminders</li>
+      </ul>
+      <a href="https://roezan.com/event-sms-reminders" class="link-more">Learn More About Event Reminders →</a>
+    </div>
+    <div class="feature-img">
+      <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/642b6a092caa975c11759c75_roezan-event-sms-reminders.png" alt="Event Reminders">
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div>
+      <div class="feature-label">SMS Conversations & Inbox</div>
+      <h2>Respond Personally With One-On-One Conversations</h2>
+      <p>Easily have 2-way conversations directly in the platform and respond personally to every contact.</p>
+      <ul class="feature-checks">
+        <li>Respond Personally With 1-on-1 Conversations</li>
+        <li>Send SMS & MMS</li>
+        <li>Easily Manage Replies With Group Inbox</li>
+      </ul>
+      <a href="https://roezan.com/conversations" class="link-more">See More About Conversations →</a>
+    </div>
+    <div class="feature-img">
+      <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/68d5b1d8cf79d599ac938861_conversational-sms.png" alt="SMS Conversations">
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div>
+      <div class="feature-label">SMS Automations</div>
+      <h2>Follow Up Automatically With Sequences</h2>
+      <p>Automatically send a series of messages for nurturing or follow up — set it once, let it run forever.</p>
+      <ul class="feature-checks">
+        <li>Automate Messaging With Triggers</li>
+        <li>Trigger Auto-Responses For Fast Follow Up</li>
+        <li>Create Conditional Paths With Criteria</li>
+      </ul>
+      <a href="https://roezan.com/sms-automations" class="link-more">Learn More About Automations →</a>
+    </div>
+    <div class="feature-img">
+      <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/651f176735b75e7485f53212_roezan-sms-automation.png" alt="SMS Automations">
+    </div>
+  </div>
+
+</section>
+
+<section class="grid-features">
+  <h2>What Makes Roezan Special?</h2>
+  <div class="grid">
+    <div class="grid-card"><div class="icon">📣</div><h3>Mass SMS Broadcasts</h3><p>Send mass text messages for promotions, nurturing, or engagement to all contacts, a specific list, or a custom segment.</p></div>
+    <div class="grid-card"><div class="icon">💬</div><h3>2-Way Conversations</h3><p>Reply & communicate with your audience 1-on-1 in threaded conversations in an easy-to-use interface.</p></div>
+    <div class="grid-card"><div class="icon">🔑</div><h3>Keywords & Text-To-Opt-In</h3><p>Create unlimited Keywords to market to, segment, tag, and auto-respond to new and existing contacts.</p></div>
+    <div class="grid-card"><div class="icon">🎯</div><h3>Powerful Segmenting</h3><p>Use lists & tags to easily segment your customers and deliver highly-targeted messages.</p></div>
+    <div class="grid-card"><div class="icon">⚡</div><h3>1000+ Integrations</h3><p>Our native Zapier integration allows you to seamlessly integrate Roezan with thousands of other tools.</p></div>
+    <div class="grid-card"><div class="icon">🖼️</div><h3>MMS (Pictures, Gifs & More!)</h3><p>Use MMS to send pictures, gifs, and more to spice up your content and deliver a unique experience.</p></div>
+    <div class="grid-card"><div class="icon">🤖</div><h3>Native Automations</h3><p>Create an SMS autoresponder and automate actions based on conditions with our native automations feature.</p></div>
+    <div class="grid-card"><div class="icon">📅</div><h3>Event Reminders</h3><p>Set up event confirmations & automatic reminders for live events, webinars, and more.</p></div>
+    <div class="grid-card"><div class="icon">🔗</div><h3>Built-In Link Shortener</h3><p>Shorten links, generate unique links, and get analytics on clicks with our built-in link shortener.</p></div>
+    <div class="grid-card"><div class="icon">🚀</div><h3>Blazing Fast Throughput</h3><p>Roezan offers high-speed SMS broadcasts for big senders that need thousands of messages delivered fast.</p></div>
+    <div class="grid-card"><div class="icon">🛡️</div><h3>Opt-Out Intelligence</h3><p>Roezan automatically cleans your lists when we find non-existing numbers or landlines — saving you money.</p></div>
+    <div class="grid-card"><div class="icon">🏆</div><h3>Amazing Support</h3><p>The world of SMS can be confusing, but we're masters at solving problems. We go above and beyond.</p></div>
+  </div>
+</section>
+
+<section class="demo-section">
+  <h2>Want To See Roezan In Action?</h2>
+  <p style="opacity:0.9;font-size:18px;margin-bottom:8px;">Text <strong>hi</strong> to:</p>
+  <div class="demo-number">(855) 674-3554</div>
+  <p>By texting into Roezan with this keyword, you agree to receive marketing messages from Roezan. Standard message & data rates may apply. Text STOP to opt out.</p>
+</section>
+
+<section class="final-cta">
+  <h2>Start building your SMS marketing machine with Roezan.</h2>
+  <p>Free trial, cancel anytime.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://app.roezan.com/register" class="btn btn-primary" style="font-size:17px;padding:14px 32px;">Sign Up Free</a>
+    <a href="https://roezan.com/features" class="btn btn-outline" style="font-size:17px;padding:14px 32px;">Learn More →</a>
+  </div>
+  <p class="sub"><a href="https://roezan.com/meet">Book A Demo</a></p>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Roezan</h4>
+      <a href="https://roezan.com/features">Features</a>
+      <a href="https://roezan.com/pricing">Pricing</a>
+      <a href="https://roezan.com/meet">Book A Demo</a>
+      <a href="https://roezan.com/company/about">About</a>
+      <a href="https://roezan.com/blog">Blog</a>
+      <a href="https://roezan.com/contact">Contact Us</a>
+      <a href="https://roezan.com/affiliates">Become An Affiliate</a>
+    </div>
+    <div class="footer-col">
+      <h4>Integrations</h4>
+      <a href="https://roezan.com/integrations/activecampaign">ActiveCampaign</a>
+      <a href="https://roezan.com/integrations/go-high-level">Go High Level</a>
+      <a href="https://roezan.com/integrations/hubspot">HubSpot</a>
+      <a href="https://roezan.com/integrations/zoom">Zoom</a>
+      <a href="https://roezan.com/integrations/calendly">Calendly</a>
+      <a href="https://roezan.com/integrations/zapier">Zapier</a>
+      <a href="https://roezan.com/integrations">See All</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="https://roezan.com/mass-texting-service">Mass Texting Service</a>
+      <a href="https://roezan.com/bulk-mms">Bulk MMS</a>
+      <a href="https://roezan.com/text-message-marketing">Text Message Marketing</a>
+      <a href="https://help.roezan.com">Knowledge Base</a>
+    </div>
+    <div class="footer-col">
+      <h4>Free Tools</h4>
+      <a href="https://roezan.com/tools/sms-character-counter">SMS Character Counter</a>
+      <a href="https://roezan.com/tools/sms-qr-code-generator">SMS QR Code Generator</a>
+      <a href="https://roezan.com/tools/unicode-to-gsm-converter">GSM Character Cleaner</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <img src="https://cdn.prod.website-files.com/624d826a2319e23310b8e32b/6256eb40d88a5e27f767291a_Roezan-Logo-4133.svg" alt="Roezan" style="height:24px;filter:brightness(0) invert(1);opacity:0.6;">
+    <p>© Copyright 2019-2026+ Roezan</p>
+    <div class="footer-legal">
+      <a href="https://roezan.com/privacy">Privacy Policy</a>
+      <a href="https://roezan.com/terms">Terms Of Use</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
